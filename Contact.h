@@ -43,5 +43,8 @@ void DelContact(PhoneBook* pc);
 //查找联系人
 void FindContact(PhoneBook* pc);
 
+//修改联系人
+void RevContact(PhoneBook* pc);
+
 //排序
 void SortContact(PhoneBook* pc);

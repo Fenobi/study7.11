@@ -55,8 +55,6 @@ size_t FindNum(PhoneBook* pc, char name[MAX_NAME])
 	return -1;
 }
 
-
-
 //删除联系人
 void DelContact(PhoneBook* pc)
 {
@@ -94,6 +92,37 @@ void FindContact(PhoneBook* pc)
 	int i = FindNum(pc, name);
 	printf("%-20s\t%-5s\t%-5d\t%-12s\t%-20s\n", pc->data[i].name, pc->data[i].sex, pc->data[i].age, pc->data[i].tele, pc->data[i].add);
 }
+
+//修改联系人
+void RevContact(PhoneBook* pc)
+{
+	printf("请输入要修改联系人姓名：");
+	char name[MAX_NAME] = { 0 };
+	scanf("%s", &name);
+	int n = FindNum(pc, name);
+	if (n == -1)
+	{
+		printf("您要修改的联系人不存在");
+		return;
+	}
+	else
+	{
+		printf("请输入姓名：");
+		scanf("%s", &pc->data[n].name);
+		printf("请输入性别：");
+		scanf("%s", &pc->data[n].sex);
+		printf("请输入年龄：");
+		scanf("%d", &pc->data[n].age);
+		printf("请输入电话号码：");
+		scanf("%s", &pc->data[n].tele);
+		printf("请输入地址：");
+		scanf("%s", &pc->data[n].add);
+
+		printf("修改联系人成功！\n");
+	}
+}
+
+
 
 void CmpByName(void* e1, void* e2)
 {
